@@ -168,7 +168,8 @@ article {
 	width: 770px;
 	height: 420px;
 	float: left;
-	margin: 50px 0px 20px 0px;
+	margin: 50px 10px 20px 10px;
+	padding-left: 6px;
 	border:  none;
 	border-radius: 3em;
 	background-color: #2381A5;
