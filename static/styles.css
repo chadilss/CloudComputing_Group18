@@ -121,7 +121,7 @@ header {
 	background-color: #2381A5;
 }
 body {
-	background-image: url(body_background.jpg)
+	background-color: darkblue;
 }
 ul#navlist li{
 	padding: 100;
