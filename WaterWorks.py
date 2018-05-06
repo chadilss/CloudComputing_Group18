@@ -8,13 +8,13 @@ import ssl, time, sys
 # AWS IoT Endpoint
 MQTT_HOST = "a2kul4sinpn50t.iot.ap-southeast-2.amazonaws.com"
 # CA Root Certificate File Path
-CA_ROOT_CERT_FILE = "root-CA.crt"
+CA_ROOT_CERT_FILE = "MyRootCA.crt"
 # AWS IoT Thing Name
-THING_NAME = "myRaspberryPi_2"
+THING_NAME = "MyPI"
 # AWS IoT Thing Certificate File Path
-THING_CERT_FILE = "myRaspberryPi_2.cert.pem"
+THING_CERT_FILE = "e8f0e4a4ac-certificate.pem.crt"
 # AWS IoT Thing Private Key File Path
-THING_PRIVATE_KEY_FILE = "myRaspberryPi_2.private.key"
+THING_PRIVATE_KEY_FILE = "e8f0e4a4ac-private.pem.key"
 # =======================================================
 
 
@@ -28,6 +28,7 @@ SHADOW_UPDATE_REJECTED_TOPIC = "$aws/things/" + THING_NAME + "/shadow/update/rej
 SHADOW_STATE_DOC_SPRINKLER_ON = """{"state" : {"desired" : {"SPRINKLER" : "ON"}}}"""
 SHADOW_STATE_DOC_SPRINKLER_OFF = """{"state" : {"desired" : {"SPRINKLER" : "OFF"}}}"""
 RESPONSE_RECEIVED = False
+
 # =======================================================
 
 # Define Flask App
