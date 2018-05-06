@@ -1,12 +1,13 @@
 # Import package
 from flask import Flask, render_template, request
+#from flask_mqtt import mqtt
 import paho.mqtt.client as mqtt
 import ssl, time, sys
 
 # =======================================================
 # Set Following Variables
 # AWS IoT Endpoint
-MQTT_HOST = "a2kul4sinpn50t.iot.ap-southeast-2.amazonaws.com"
+MQTT_HOST = "##############.iot.ap-southeast-2.amazonaws.com"
 # CA Root Certificate File Path
 CA_ROOT_CERT_FILE = "MyRootCA.crt"
 # AWS IoT Thing Name
@@ -34,11 +35,11 @@ RESPONSE_RECEIVED = False
 # Define Flask App
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/home.html")
 def main():
         return render_template('home.html')
 
-@app.route('/door_ctrl', methods=['POST'])
+@app.route('/sprinkler_ctrl', methods=['POST'])
 def sprinklerCtrl():
 	while True:
 		if request.form['SPRINKLER'] == "ON":
@@ -50,7 +51,7 @@ def sprinklerCtrl():
 
 # Define on connect event function
 # We shall subscribe to Shadow Accepted and Rejected Topics in this function
-def on_connect(mosq, obj, rc):
+def on_connect(client, userdata, flags, rc):
     mqttc.subscribe(SHADOW_UPDATE_ACCEPTED_TOPIC, 1)
     mqttc.subscribe(SHADOW_UPDATE_REJECTED_TOPIC, 1)
 
